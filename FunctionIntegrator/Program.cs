@@ -22,16 +22,23 @@ namespace FunctionIntegrator
             var x_str = Console.ReadLine();
             double x;
 
-            if (double.TryParse(x_str, out x))
-            {
-                var y = Function(x);
+            //int.Parse()
+            //int.TryParse()
+            //long.Parse()
+            //byte.Parse()
+            //double.Parse()
+            //float.Parse()
+            //bool.Parse()
 
-                Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
-            }
-            else
+            if (!double.TryParse(x_str, out x))
             {
                 Console.WriteLine("Введённая строка имела неверный формат");
+                return;
             }
+
+            var y = Function(x);
+
+            Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
         }
     }
 }
