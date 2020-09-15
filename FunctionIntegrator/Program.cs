@@ -15,25 +15,48 @@ namespace FunctionIntegrator
         {
             // f(x) = 3 * x^2; [0; 1]
 
-            const double a = 0;
-            const double b = 1;
-            const double dx = 0.0001;
+            double a = 0;
+            double b = 1;
+            double dx = 0.0001;
 
-            double x;
-            //string x_str;
-            //do
-            //{
-            //    Console.Write("Введите значение переменной x > ");
-            //    x_str = Console.ReadLine();
-            //}
-            //while (!double.TryParse(x_str, out x));
+            string a_str;
+            do
+            {
+                Console.Write("Введите значение a > ");
+                a_str = Console.ReadLine();
+            }
+            while (!double.TryParse(a_str, out a));
 
-            //var y = Function(x);
+            string b_str;
+            do
+            {
+                Console.Write("Введите значение b > ");
+                b_str = Console.ReadLine();
+            }
+            while (!double.TryParse(b_str, out b));
 
-            //Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
+            string dx_str;
+            do
+            {
+                Console.Write("Введите значение dx > ");
+                dx_str = Console.ReadLine();
+            }
+            while (!double.TryParse(dx_str, out dx));
+
+            if (a == b)
+            {
+                Console.WriteLine("Интеграл функции f(x) = 0");
+                return;
+            }
+
+            if (b < a)
+            {
+                Console.WriteLine("Верхний предел интегрирования имеет значение меньше, чем нижний");
+                return;
+            }
 
             double sum = 0;
-            x = a;
+            var x = a;
 
             int step_count = 0;
             while (x <= b)
@@ -51,14 +74,13 @@ namespace FunctionIntegrator
             Console.WriteLine("Интеграл функции f(x) = {0}", sum);
             Console.WriteLine("Число шагов интегрирования {0}", step_count);
 
-            const double expected_result = 1;
+            //const double expected_result = 1;
 
-            var error = expected_result - sum;
+            //var error = expected_result - sum;
 
-            var rel_err = error / expected_result;
+            //var rel_err = error / expected_result;
 
-            //Console.WriteLine("Ошибка составила " + error + " (" + rel_err + ")");
-            Console.WriteLine("Ошибка составила {0:f3} ({1:p2})", error, rel_err);
+            //Console.WriteLine("Ошибка составила {0:f3} ({1:p2})", error, rel_err);
         }
     }
 }
