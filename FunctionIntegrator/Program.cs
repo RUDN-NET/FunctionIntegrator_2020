@@ -59,74 +59,15 @@ namespace FunctionIntegrator
             s2 = tmp;
         }
 
-        static void Initialize(out string str, string Pattern, int Count)
-        {
-            str = "";
-            for (var i = 0; i < Count; i++)
-                str += Pattern;
-        }
-
-        static void InitializeRef(ref string str)
-        {
-            
-        }
-
         static void Main(string[] args)
         {
-            //var s1 = "S1";
-            //var s2 = "S2";
-
-            //Initialize(out s1, "Hello", 5);
-
-            //Swap(ref s1, ref s2);
-
-            //Console.WriteLine("s1 = {0}", s1);
-            //Console.WriteLine("s2 = {0}", s2);
-
-            //return;
-
-            //f(x) = 3 * x ^ 2;[0; 1]
-
-            //double a = 0;
-            //double b = 1;
-            //double dx = 0.0001;
-
             ReadValueFromConsole(out var a, "Введите значение a > ");
             ReadValueFromConsole(out double b, "Введите значение b > ");
             ReadValueFromConsole(out var dx, "Введите значение dx > ");
 
-            //if (a == b)
-            //{
-            //    Console.WriteLine("Интеграл функции f(x) = 0");
-            //    return;
-            //}
-
-            //if (b < a)
-            //{
-            //    Console.WriteLine("Верхний предел интегрирования имеет значение меньше, чем нижний");
-            //    return;
-            //}
-
-            //double sum = 0;
-            //var x = a;
-
-            //int step_count = 0;
-            //while (x <= b)
-            //{
-            //    step_count++;
-            //    var f = Function(x);
-
-            //    var dv = f * dx;
-
-            //    sum += dv;
-
-            //    x += dx; // x = x + dx;
-            //}
-
             var sum = GetIntegralValue(a, b, dx);
 
             Console.WriteLine("Интеграл функции f(x) = {0}", sum);
-            //Console.WriteLine("Число шагов интегрирования {0}", step_count);
         }
     }
 }
