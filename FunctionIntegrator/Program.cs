@@ -18,7 +18,10 @@ namespace FunctionIntegrator
             const double a = 0;
             const double b = 1;
 
-            var x = 1;
+            Console.Write("Введите значение переменной x > ");
+            var x_str = Console.ReadLine();
+
+            var x = double.Parse(x_str);
             var y = Function(x);
 
             Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
