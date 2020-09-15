@@ -18,24 +18,15 @@ namespace FunctionIntegrator
             const double a = 0;
             const double b = 1;
 
-            Console.Write("Введите значение переменной x > ");
-            var x_str = Console.ReadLine();
             double x;
-
-            //int.Parse()
-            //int.TryParse()
-            //long.Parse()
-            //byte.Parse()
-            //double.Parse()
-            //float.Parse()
-            //bool.Parse()
-
-            if (!double.TryParse(x_str, out x))
+            string x_str;
+            do
             {
-                Console.WriteLine("Введённая строка имела неверный формат");
-                return;
+                Console.Write("Введите значение переменной x > ");
+                x_str = Console.ReadLine();
             }
-
+            while (!double.TryParse(x_str, out x));
+           
             var y = Function(x);
 
             Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
