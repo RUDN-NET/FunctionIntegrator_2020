@@ -20,11 +20,18 @@ namespace FunctionIntegrator
 
             Console.Write("Введите значение переменной x > ");
             var x_str = Console.ReadLine();
+            double x;
 
-            var x = double.Parse(x_str);
-            var y = Function(x);
+            if (double.TryParse(x_str, out x))
+            {
+                var y = Function(x);
 
-            Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
+                Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
+            }
+            else
+            {
+                Console.WriteLine("Введённая строка имела неверный формат");
+            }
         }
     }
 }
