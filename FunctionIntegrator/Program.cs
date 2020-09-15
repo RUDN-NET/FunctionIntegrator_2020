@@ -1,9 +1,19 @@
-﻿using System;
+﻿/*
+ 
+  Файл исходного кода
+ 
+ */
+
+using System;
 
 namespace FunctionIntegrator
 {
+    /// <summary>Класс главной программы приложения</summary>
     class Program
     {
+        /// <summary>Интегрируемая функция f(x)=3x^2</summary>
+        /// <param name="x">Аргумент функции</param>
+        /// <returns>Возвращаемое значение функции f(x)=3x^2</returns>
         static double Function(double x)
         {
             var result = x * x;
@@ -72,7 +82,7 @@ namespace FunctionIntegrator
 
             //return;
 
-            // f(x) = 3 * x^2; [0; 1]
+            //f(x) = 3 * x ^ 2;[0; 1]
 
             //double a = 0;
             //double b = 1;
