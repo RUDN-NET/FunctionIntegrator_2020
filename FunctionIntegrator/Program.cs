@@ -111,9 +111,51 @@ namespace FunctionIntegrator
             ReadValueFromConsole(out double b, "Введите значение b > ");
             ReadValueFromConsole(out var dx, "Введите значение dx > ");
 
+            string message;
+
+            if (a > 0)
+            {
+                message = "Переменная а больше нуля";
+            }
+            else
+            {
+                message = "Переменная а меньше, либо равна нулю";
+            }
+
+            Printer(message);
+
+            //string msg = a > 0 ? "Переменная а больше нуля" : "Переменная а меньше, либо равна нулю";
+            // условие ? если_истина : если_ложь
+            //Printer(a > 0 ? "Переменная а больше нуля" : "Переменная а меньше, либо равна нулю");
+
             var sum = GetIntegralValue(a, b, dx);
 
             var integral_of_sin = GetIntegralValue(Math.Sin, 0, Math.PI / 2, 0.0001);
+
+            Func<double, double> function = x => 3 * x * x;
+            // "x => 3 * x * x" - лямбда-выражение
+
+            // f(x) = 5 * sin(2*pi*x - 3) + 7
+
+            var integral_of_func = GetIntegralValue(
+                x => 5 * Math.Sin(2 * Math.PI * x - 3) + 7, // подинтегральное выражение 5 * sin(2*pi*x - 3) + 7
+                0, 5,  // интервал интегрирования от 0 до 5
+                0.001); // шаг интегрирования 
+
+            Func<double, double> f1 = Math.Sin; // f1(x) = sin(x);
+            Func<double, double> f2 = x => 2 * x + 3; // f2(x) = 2x + 3;
+
+            Func<double, double> f3 = Add(f1, f2);
+            Func<double, double> f4 = Sub(f3, f1);
+            Func<double, double> f5 = Mul(f3, f2);
+            Func<double, double> f6 = Comb(f3, f1);
+
+            Func<double, double> f7 = Add(f1, x => x * x); // f7(x) = sin(x) + x^2
+
+            // f3 = f1 + f2 -- f3(x) = f1(x) + f2(x);
+            // f4 = f1 - f2 -- f3(x) = f1(x) - f2(x);
+            // f5 = f1 * f2 -- f3(x) = f1(x) * f2(x);
+            // f6(x) = f1(f2(x));
 
             Console.WriteLine("Интеграл функции f(x) = {0}", sum);
         }
@@ -145,6 +187,32 @@ namespace FunctionIntegrator
         static int GetStringLength(string str)
         {
             return str.Length;
+        }
+
+        // --------------------------------------------------------------------
+
+        static Func<double, double> Add(Func<double, double> a, Func<double, double> b)
+        {
+            Func<double, double> result = x => a(x) + b(x);
+            return result;
+        }
+
+        static Func<double, double> Sub(Func<double, double> a, Func<double, double> b)
+        {
+            Func<double, double> result = x => a(x) - b(x);
+            return result;
+        }
+
+        static Func<double, double> Mul(Func<double, double> a, Func<double, double> b)
+        {
+            Func<double, double> result = x => a(x) * b(x);
+            return result;
+        }
+
+        static Func<double, double> Comb(Func<double, double> a, Func<double, double> b)
+        {
+            Func<double, double> result = x => a(b(x));
+            return result;
         }
     }
 }
