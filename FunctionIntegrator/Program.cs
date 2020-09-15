@@ -6,7 +6,9 @@ namespace FunctionIntegrator
     {
         static double Function(double x)
         {
-            return x;
+            var result = x * x;
+            result = result * 3;
+            return result;
         }
 
         static void Main(string[] args)
@@ -16,9 +18,10 @@ namespace FunctionIntegrator
             const double a = 0;
             const double b = 1;
 
-            var y = Function(1);
+            var x = 1;
+            var y = Function(x);
 
-            Console.WriteLine("Функция f(x) при x = 1 равна " + y);
+            Console.WriteLine("Функция f(x) при x = " + x + " равна " + y);
         }
     }
 }
