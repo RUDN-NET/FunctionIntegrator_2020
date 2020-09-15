@@ -39,17 +39,48 @@ namespace FunctionIntegrator
             return sum;
         }
 
+        static void Swap(ref string s1, ref string s2)
+        {
+            var tmp = s1;
+            s1 = s2;
+            s2 = tmp;
+        }
+
+        static void Initialize(out string str, string Pattern, int Count)
+        {
+            str = "";
+            for (var i = 0; i < Count; i++)
+                str += Pattern;
+        }
+
+        static void InitializeRef(ref string str)
+        {
+            
+        }
+
         static void Main(string[] args)
         {
+            //var s1 = "S1";
+            //var s2 = "S2";
+
+            //Initialize(out s1, "Hello", 5);
+
+            //Swap(ref s1, ref s2);
+
+            //Console.WriteLine("s1 = {0}", s1);
+            //Console.WriteLine("s2 = {0}", s2);
+
+            //return;
+
             // f(x) = 3 * x^2; [0; 1]
 
-            double a = 0;
-            double b = 1;
-            double dx = 0.0001;
+            //double a = 0;
+            //double b = 1;
+            //double dx = 0.0001;
 
-            ReadValueFromConsole(out a, "Введите значение a > ");
-            ReadValueFromConsole(out b, "Введите значение b > ");
-            ReadValueFromConsole(out dx, "Введите значение dx > ");
+            ReadValueFromConsole(out var a, "Введите значение a > ");
+            ReadValueFromConsole(out double b, "Введите значение b > ");
+            ReadValueFromConsole(out var dx, "Введите значение dx > ");
 
             if (a == b)
             {
