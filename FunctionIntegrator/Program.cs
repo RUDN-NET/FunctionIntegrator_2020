@@ -36,13 +36,16 @@ namespace FunctionIntegrator
 
         static double GetIntegralValue(double a, double b, double dx)
         {
+            if (a == b) return 0;
+            if (dx < 0) dx = -dx;
+            if (a < b) dx *= -1; // dx = dx * -1;
+
             double sum = 0;
             var x = a;
 
             while (x <= b)
             {
                 sum += Function(x) * dx;
-
                 x += dx; // x = x + dx;
             }
 
@@ -92,17 +95,17 @@ namespace FunctionIntegrator
             ReadValueFromConsole(out double b, "Введите значение b > ");
             ReadValueFromConsole(out var dx, "Введите значение dx > ");
 
-            if (a == b)
-            {
-                Console.WriteLine("Интеграл функции f(x) = 0");
-                return;
-            }
+            //if (a == b)
+            //{
+            //    Console.WriteLine("Интеграл функции f(x) = 0");
+            //    return;
+            //}
 
-            if (b < a)
-            {
-                Console.WriteLine("Верхний предел интегрирования имеет значение меньше, чем нижний");
-                return;
-            }
+            //if (b < a)
+            //{
+            //    Console.WriteLine("Верхний предел интегрирования имеет значение меньше, чем нижний");
+            //    return;
+            //}
 
             //double sum = 0;
             //var x = a;
