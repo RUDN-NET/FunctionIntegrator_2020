@@ -73,14 +73,6 @@ namespace FunctionIntegrator
 
             Console.WriteLine("Интеграл функции f(x) = {0}", sum);
             Console.WriteLine("Число шагов интегрирования {0}", step_count);
-
-            //const double expected_result = 1;
-
-            //var error = expected_result - sum;
-
-            //var rel_err = error / expected_result;
-
-            //Console.WriteLine("Ошибка составила {0:f3} ({1:p2})", error, rel_err);
         }
     }
 }
